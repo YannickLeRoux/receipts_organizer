@@ -18,9 +18,6 @@ class HomePageTest(TestCase):
     def test_home_page_returns_correct_html(self):
         self.assertEquals(self.response.status_code, 200)
 
-        # html = self.response.content.decode('utf-8')
-        # self.assertTrue(html.startswith('<html>'))
-        # self.assertTrue(html.endswith('</html>'))
         self.assertContains(self.response,'<html>')
         self.assertContains(self.response,'<title>Receipts Organizer</title>')
         
