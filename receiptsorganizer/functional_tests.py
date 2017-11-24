@@ -16,14 +16,28 @@ class NewVisitorTest(unittest.TestCase):
         # to check out its homepage
         self.browser.get('http://localhost:8000')
 
-        # She notices the page title and header mention to-do lists
-        self.assertIn('Receipts', self.browser.title)   
+        # She notices the page title and header mention receipts
+        self.assertIn('Receipts', self.browser.title)
+        header = self.browser.find_element_by_tag_name('h1')
+        self.assertIn('Receipts',header.text)
+
 
         # She is sees the signup button and click to sign-up for an account
-        signuplink = self.browser.find_element_by_id('signuplink')
-        self.assertEquals(signuplink.text,'Sign up')
+        signuplink = self.browser.find_element_by_link_text('Sign up')
+        self.assertEquals(signuplink.get_attribute('href'),'http://localhost:8000/signup/')
 
-        # She is invited to enter a username, email and password 2 times
+    def test_can_signup_from_homepage(self):
+        self.browser.get('http://localhost:8000')
+        signuplink = self.browser.find_element_by_link_text('Sign up')
+
+        signuplink.click()
+        time.sleep(10)
+
+        # Signup page invite to enter a username, email and password 2 times
+        username_input = self.browser.find_element_by_name('username')
+        email_input = self.browser.find_element_by_name('email')
+        password1_input = self.browser.find_element_by_name('password1')
+        password2_input = self.browser.find_element_by_name('password2')
 
         # She is invited to Login
 

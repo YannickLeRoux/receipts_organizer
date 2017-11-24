@@ -17,8 +17,10 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from receipts import views
+from accounts import views as auth_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.HomePageView.as_view(), name='home'),
+    url(r'signup/$', auth_views.SignUpView.as_view(), name='signup'),
 ]
