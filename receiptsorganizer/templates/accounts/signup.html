@@ -10,7 +10,7 @@
           <h3 class="card-title">Sign up</h3>
           <form method="post" novalidate>
             {% csrf_token %}
-            <!-- % include 'accounts/includes/form.html' % -->
+						{% include 'accounts/includes/form.html' %}
             <button type="submit" class="btn btn-primary btn-block">Create an account</button>
           </form>
         </div>

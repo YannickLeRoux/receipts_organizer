@@ -1,17 +1,51 @@
-{% extends 'base.html' %}
-
-{% load static %}
-
-{% block stylesheet %}
-  <!-- <link rel="stylesheet" href="{% static 'css/accounts.css' %}"> -->
-{% endblock %}
-
+{% load static %}<!-- DOCTYPE -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- Viewport Meta Tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+			{% block title %}
+      {% endblock title %}
+    </title>
+    <!-- Bootstrap -->
+		<link rel="stylesheet" type="text/css" href="{% static "assets/css/bootstrap.min.css" %}">
+    <!-- Main Style -->
+		<link rel="stylesheet" type="text/css" href="{% static "assets/css/main.css" %}">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href="{% static "assets/css/responsive.css" %}">
+    <!--Fonts-->
+    <link rel="stylesheet" media="screen" href="{% static "assets/fonts/font-awesome/font-awesome.min.css" %}">
+    <link rel="stylesheet" media="screen" href="{% static "assets/fonts/simple-line-icons.css" %}">    
+    <!-- Color CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="{% static "assets/css/colors/green.css" %}" media="screen" >
+		{% block stylesheet %}
+    <!-- <link rel="stylesheet" href="% static 'css/accounts.css' %}"> -->
+    {% endblock %}
+		
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js">
+    </script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js">
+    </script>
+    <![endif]-->
+  </head>
+  <body>
 {% block body %}
   <div class="container">
-    <h1 class="text-center logo my-4">
-      <a href="{% url 'home' %}">Receipts Organizer</a>
-    </h1>
-    {% block content %}
-    {% endblock %}
-  </div>
+		<div class="row">
+			<div class="col-md-8">
+				<h1 class="text-center logo my-4">
+					<a href="{% url 'home' %}">
+						<img src="{% static "assets/img/logo2.png" %}" alt="receipts organizer">
+					</a>
+				</h1>
+				{% block content %}
+				{% endblock %}
+			</div>
+			</div>
+	</div>
 {% endblock %}
+  </body>
