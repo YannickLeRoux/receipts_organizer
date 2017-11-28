@@ -69,19 +69,7 @@
 								<li class="nav-item dropdown">
 									<a class="nav-link active" href="{% url 'home' %}" role="button" aria-haspopup="true" aria-expanded="false">Receipts</a>                  
                 </li> 
-                          
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-										Welcome, {{ user.username }}
-                  </a>
-                  <div class="dropdown-menu">                      
-                    <a class="dropdown-item" href="#">My Account</a>
-                    <a class="dropdown-item" href="#">Reset Password</a>
-                    <a class="dropdown-item" href="#">LogOut</a>
-                    <a class="dropdown-item" href="#">Contact us 2</a>
-                  </div> 
-                </li>          
-                <!-- Search in right of nav -->
+                 <!-- Search in right of nav -->
                 <li class="nav-item" class="search">
                   <form class="top_search clearfix">
                     <div class="top_search_con">
@@ -91,6 +79,20 @@
                     </div>
                   </form>
                 </li>
+                <!-- Search Ends -->    
+                          
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+										Welcome, {{ user.username }}
+                  </a>
+                  <div class="dropdown-menu">                      
+                    <a class="dropdown-item" href="#">My Account</a>
+                    <a class="dropdown-item" href="#">Reset Password</a>
+                    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                    <a class="dropdown-item" href="#">Contact us 2</a>
+                  </div> 
+                </li>          
+             
                 <!-- Search Ends -->                  
               </ul>  
             </div>              
@@ -111,7 +113,7 @@
 									<a class="nav-link active" href="{% url 'signup' %}" role="button" aria-haspopup="true" aria-expanded="false">SignUp</a>                  
                 </li>
 								 <li class="nav-item dropdown">
-									<a class="nav-link active" href="{% url 'home' %}" role="button" aria-haspopup="true" aria-expanded="false">LogIn</a>                  
+									<a class="nav-link active" href="{% url 'login' %}" role="button" aria-haspopup="true" aria-expanded="false">LogIn</a>                  
                 </li>
 							</ul>
 							{% endif %}

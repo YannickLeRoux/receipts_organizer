@@ -1,6 +1,6 @@
 {% extends 'accounts/base_accounts.html' %}
 
-{% block title %}Log in to ToDoList Manager{% endblock %}
+{% block title %}Log in to Receipts Organizer{% endblock %}
 
 {% block content %}
   <div class="row justify-content-center">
@@ -10,13 +10,12 @@
           <h3 class="card-title">Log in</h3>
           <form method="post" novalidate>
             {% csrf_token %}
-						<!-- <TODOinput type="hidden" name="next" value="{{ next }}"> -->
             {% include 'accounts/includes/form.html' %}
             <button type="submit" class="btn btn-primary btn-block">Log in</button>
           </form>
         </div>
         <div class="card-footer text-muted text-center">
-          New to To-Do List Manager? <a href="{% url 'signup' %}">Sign up</a>
+          New to REceipts Organizer? <a href="{% url 'signup' %}">Sign up</a>
         </div>
       </div>
       <div class="text-center py-2">
