@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap4',
     'django_extensions',
+    'receipts',
 ]
 
 MIDDLEWARE = [
@@ -133,4 +134,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS =[os.path.join(BASE_DIR,'static')]
 
 LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'categories'
 LOGOUT_REDIRECT_URL = 'home'

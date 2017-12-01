@@ -1,2 +1,15 @@
 {% extends "base.html" %}
 <h1>Categories</h1>
+
+<ul>
+  {% if user_categories %}
+    {% for cat in user_categories %}
+      <li>{{ cat.name }} created: {{ cat.date_created }}</li>
+    {% endfor %}
+
+  {% else %}
+    <p>No Category created yet</p>
+
+  {% endif %}
+
+</ul>
