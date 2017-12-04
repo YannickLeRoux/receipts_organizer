@@ -1,15 +1,19 @@
 {% extends "base.html" %}
-<h1>Categories</h1>
 
-<ul>
-  {% if user_categories %}
-    {% for cat in user_categories %}
-      <li>{{ cat.name }} created: {{ cat.date_created }}</li>
-    {% endfor %}
+{% block title %}Categories{% endblock title %}
+{% block content %}
+<div class='container'>
+	<div class='row text-center'>
+		<h1>Categories</h1>
+		<a href="{% url 'new_category' %}" class="btn btn-primary"> Create New Category</a>
+		<ul>
+      {% for cat in categories %}
+      <li>{{ cat.name }} <small>created {{ cat.date_created }}</small></li>
+			{% empty %}
+			<p>No Category created yet</p>
+			{% endfor %}
+    </ul>
+	</div>
+</div>
+{% endblock content %}
 
-  {% else %}
-    <p>No Category created yet</p>
-
-  {% endif %}
-
-</ul>

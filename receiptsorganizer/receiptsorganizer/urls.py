@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'login/$', accounts_views.LogInView.as_view(), name='login'),
     url(r'logout/$', auth_views.LogoutView.as_view(), name='logout'),
     url(r'categories/$', views.CategoriesView.as_view(), name='categories'),
+    url(r'categories/new/$', views.NewCategory.as_view(), name='new_category'),
 ]
