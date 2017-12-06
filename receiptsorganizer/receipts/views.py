@@ -1,4 +1,5 @@
-from django.views.generic import TemplateView, ListView, CreateView
+from django.views.generic import (TemplateView, ListView, CreateView,
+                                    DetailView)
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
@@ -21,6 +22,20 @@ class CategoriesView(LoginRequiredMixin, ListView):
 
 class NewCategory(LoginRequiredMixin, CreateView):
     model = Category
+    fields = ('name',)
     # form_class = CategoryForm
     success_url = reverse_lazy('categories')
     template_name = 'new_category.html'
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.created_by = self.request.user
+        self.object.save()
+        return super().form_valid(form)
+
+
+class CategoryDetailView(LoginRequiredMixin, DetailView):
+    model = Category
+    template_name = 'category_detail.html'
+
+

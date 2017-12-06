@@ -28,4 +28,6 @@ urlpatterns = [
     url(r'logout/$', auth_views.LogoutView.as_view(), name='logout'),
     url(r'categories/$', views.CategoriesView.as_view(), name='categories'),
     url(r'categories/new/$', views.NewCategory.as_view(), name='new_category'),
+    url(r'categories/(?P<pk>\d+)/$', views.CategoryDetailView.as_view(),
+        name='category_detail'),
 ]

@@ -6,9 +6,7 @@
     <!-- Viewport Meta Tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-			{% block title %}
-			 Receipts Organizer
-      {% endblock title %}
+			{% block title %}Receipts Organizer{% endblock title %}
     </title>
     <!-- Bootstrap -->
 		<link rel="stylesheet" type="text/css" href="{% static "assets/css/bootstrap.min.css" %}">
@@ -83,7 +81,7 @@
                           
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-										<i class="fa fa-user-circle-o" aria-hidden="true"></i> {{ user.username }}
+										<i class="fa fa-user-circle-o" aria-hidden="true"></i>{{ user.username }}
                   </a>
                   <div class="dropdown-menu">                      
                     <a class="dropdown-item" href="#">My Account</a>
@@ -123,106 +121,15 @@
         <!-- Navbar Ends -->
 
       </section> 
-    <!-- Start Content -->
-
-    <!-- End Content --> 
     </header>
-    <!-- Header-wrap Section End -->
-   
-    <!-- Service Block-1 Section -->
-	    <section id="service-block-main" class="section">
-      <!-- Container Starts -->
+
+	  <section id="service-block-main" class="section">
       <div class="container">
-        <div class="row">        
-				  <h1 class="section-title wow fadeIn animated" data-wow-delay=".2s">
-           WHY CHOOSE US?
-          </h1>
-          <p class="section-subcontent">
-					  <div class="col-sm-6 col-md-3">
-					  {% block content %}
-		        {% endblock content %}</p>
-					  </div>
-      </div><!-- Container Ends -->
-    </section><!-- Service Main Section Ends -->
-
-
-          <!-- Footer Widget Starts -->
-          <div class="footer-widget col-md-3 col-xs-12 wow fadeIn" data-wow-delay=".5s">
-            <h3 class="small-title">
-              GALLERY
-            </h3>
-            <div class="plain-flicker-gallery">
-              <a href="#" title="Pan Masala"><img src="img/flicker/img1.jpg" alt=""></a>
-              <a href="#" title="Sports Template for Joomla"><img src="img/flicker/img2.jpg" alt=""></a>
-              <a href="" title="Apple Keyboard"><img src="img/flicker/img3.jpg" alt=""></a>
-              <a href="" title="Hard Working"><img src="img/flicker/img4.jpg" alt=""></a>
-              <a href="" title="Smile"><img src="img/flicker/img5.jpg" alt=""></a>
-              <a href="" title="Puzzle"><img src="img/flicker/img6.jpg" alt=""></a>
-            </div>
-          </div><!-- Footer Widget Ends -->
-
-          <!-- Footer Widget Starts -->
-          <div class="footer-widget col-md-3 col-xs-12 wow fadeIn" data-wow-delay=".8s">
-            <h3 class="small-title">
-              SUBSCRIBE US
-            </h3>
-            <div class="contact-us">
-              <p>Tellus aliquam at. Pellentesque gravida vel eros et pretium</p>
-              <form>
-              <div class="form-group">
-                <input type="text" class="form-control" id="exampleInputName2" placeholder="Enter your name">
-              </div>
-              <div class="form-group">
-                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter your email">
-              </div>
-              <button type="submit" class="btn btn-common">Submit</button>
-            </form>
-            </div>
-          </div><!-- Footer Widget Ends -->
-        </div><!-- Row Ends -->
-      </div><!-- Container Ends -->
-      
-      <!-- Copyright -->
-      <div id="copyright">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 col-sm-6">
-              <p class="copyright-text">
-                ©  2016 Engage. All right reserved. Designed with by <a href="#">GrayGrids</a>
-              </p>
-            </div>
-            <div class="col-md-6  col-sm-6">
-              <ul class="nav nav-inline pull-xs-right">
-                <li class="nav-item">
-                  <a class="nav-link active" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Sitemap</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Privacy Policy</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Terms of services</a>
-                </li>
-              </ul>        
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Copyright  End-->
-      
-    </footer>
-    <!-- Footer Section End-->
-    
-    <!-- Go To Top Link -->
-    <a href="#" class="back-to-top">
-      <i class="fa fa-angle-up">
-      </i>
-    </a>
-
-    <div class="bottom"> <a href="#" class="settings"></a> </div>
-
+        		{% block content %}
+		        {% endblock content %}
+			</div>
+    </section>
+     
     <!-- JavaScript & jQuery Plugins -->
     <!-- jQuery Load -->
     <script src="{% static "assets/js/jquery-min.js" %}"></script>
@@ -246,7 +153,7 @@
     <script src="{% static "assets/js/jquery.vide.js" %}"></script>
      <!-- All JS plugin Triggers -->
     <script src="{% static "assets/js/main.js" %}"></script>
-    <script src="{% static "assets/js/color-switcher.js" %}"></script>
+		<!-- <script src="{% static "assets/js/color-switcher.js" %}"></script> -->
     
   </body>
 </html>

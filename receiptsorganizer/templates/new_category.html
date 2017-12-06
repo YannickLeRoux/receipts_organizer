@@ -1,8 +1,27 @@
 {% extends "base.html" %}
 
 {% block title %}New Category{% endblock title %}
-
 {% block content %}
-<h1>Add a new category</h1>
-  
+<div id="free-promo" style="text-align: center;
+    margin-top: 60px;">
+	<div class='container'>
+		<div class="row">
+		  <h1 class="section-title wow fadeIn animated" data-wow-delay=".2s">Create
+        aA New Categories</h1>
+			  <div class="section-subcontent">
+
+		      <a href="{% url 'new_category' %}" class="btn btn-primary"> Create New Category</a>
+
+          <form method="post" class="mb-4" novalidate>
+            {% csrf_token %}
+            {% include 'includes/form.html' %}
+            <button type="submit" class="btn btn-success">Create</button>
+          </form>
+		      
+		    </div>
+		</div>
+	</div>
+</div>
 {% endblock content %}
+
+
