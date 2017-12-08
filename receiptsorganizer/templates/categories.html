@@ -2,24 +2,39 @@
 
 {% block title %}Categories{% endblock title %}
 {% block content %}
-<div id="free-promo" style="text-align: center;
-    margin-top: 60px;">
+<div id="free-promo">
 	<div class='container'>
 		<div class="row">
 		  <h1 class="section-title wow fadeIn animated" data-wow-delay=".2s">Categories</h1>
 			  <div class="section-subcontent">
 
-		      <a href="{% url 'new_category' %}" class="btn btn-primary"> Create New Category</a>
-		      <ul>
-            {% for cat in categories %}
-						<li><a href="{% url 'category_detail' pk=cat.pk %}">{{ cat.name }} </a><small>created {{ cat.date_created }}</small></li>
-			      {% empty %}
-			      <p>No Category created yet</p>
-			      {% endfor %}
-          </ul>
+		      <a href="{% url 'new_category' %}" class="btn btn-common"> Create New Category</a>
+		      <table class="table">
+						<thead>
+							<tr>
+								<th>Category Name</th>
+								<th>Receipts</th>
+								<th>Date Created</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+
+							{% for cat in categories %}
+							<tr>
+								<td><a href="{% url 'category_detail' pk=cat.pk %}">{{ cat.name }}</a></td>
+								<td> 0 </td>
+								<td><small> {{ cat.date_created }}</small></td>
+							{% empty %}
+							<p>No Category created yet</p>
+							{% endfor %}
+            </tr>
+						</tbody>
+					</table>
 		    </div>
 		</div>
 	</div>
 </div>
 {% endblock content %}
+
 

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Delete {{ category.name }}{% endblock title %}
+{% block content %}
+<div id="free-promo" style="text-align: center;">
+	<div class='container'>
+		<div class="row">
+			<form method="POST">
+				{% csrf_token %}
+					<h1 class="section-title wow fadeIn animated"
+						data-wow-delay=".2s"> Are you sure you want to delete <strong>{{ category.name }}</strong> ?</h1>
+					<input type="submit" class="btn btn-danger" value="Yes">
+			</form>
+			<div class="section-subcontent">
+				<p><strong><a href="{% url 'categories' %}>"No, take me back.</p></a>
+		  </div>
+		</div>
+	</div>
+</div>
+{% endblock content %}

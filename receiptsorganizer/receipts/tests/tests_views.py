@@ -60,5 +60,20 @@ class CategoriesViewTests(TestCase):
         new_category_url = reverse('new_category')
         self.assertContains(self.response,'href="{0}"'.format(new_category_url))
 
+class NewCategoryTests(TestCase):
+
+    def setUp(self):
+        self.user = User.objects.create_user(username='Yannick',
+                email='r@gmail.com',password='testpassword1')
+        self.client.login(username='Yannick',password='testpassword1')
+        url = reverse('new_category')
+        self.response = self.client.get(url)
+
+    def test_new_categories_view_status_code_if_logged(self):
+        self.assertEquals(self.response.status_code,200)
+
+
+
+
 
 

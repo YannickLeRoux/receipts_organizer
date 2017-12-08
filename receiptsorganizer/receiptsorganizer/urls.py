@@ -30,4 +30,6 @@ urlpatterns = [
     url(r'categories/new/$', views.NewCategory.as_view(), name='new_category'),
     url(r'categories/(?P<pk>\d+)/$', views.CategoryDetailView.as_view(),
         name='category_detail'),
+     url(r'categories/(?P<pk>\d+)/delete/$', views.CategoryDeleteView.as_view(),
+        name='category_delete'),
 ]

@@ -1,19 +1,17 @@
 {% extends "base.html" %}
 
-{% block title %}Category name here{% endblock title %}
+{% block title %}{{ category.name }}{% endblock title %}
 {% block content %}
-<div id="free-promo" style="text-align: center;
-    margin-top: 60px;">
+<div id="free-promo" style="text-align: center;">
 	<div class='container'>
 		<div class="row">
 		  <h1 class="section-title wow fadeIn animated"
-        data-wow-delay=".2s">Category NAme here</h1>
+        data-wow-delay=".2s">{{ category.name }}</h1>
 			  <div class="section-subcontent">
 
-		      <a href="#" class="btn btn-primary"> Create New Category</a>
+					<a href="{% url 'category_delete' pk=category.pk %}" class="btn btn-danger">Delete This Category</a>
 
-          <p> delete category, add or modify a descrition, add or modify name, listing de touts les recepts
-          de la category </p>		      
+          <p><strong>Description:</strong> {{category.description }} </p>		      
 		    </div>
 		</div>
 	</div>

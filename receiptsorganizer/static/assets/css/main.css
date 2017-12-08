@@ -80,7 +80,7 @@ a {
   transition: all 0.2s linear;
 }
 a:hover {
-  color: #a22f30;
+  color: #6b9c0f;
   text-decoration: none;
 }
 a:focus {
@@ -118,7 +118,7 @@ button:hover {
 }
 .btn-common {
   color: #FFF;
-  background: #ff5959;
+  background: #b0387a !important;
   position: relative;
   border: transparent;
   z-index: 1;

@@ -1,5 +1,5 @@
 from django.views.generic import (TemplateView, ListView, CreateView,
-                                    DetailView)
+                                    DetailView, DeleteView)
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
@@ -38,4 +38,7 @@ class CategoryDetailView(LoginRequiredMixin, DetailView):
     model = Category
     template_name = 'category_detail.html'
 
-
+class CategoryDeleteView(LoginRequiredMixin, DeleteView):
+    model = Category
+    success_url = reverse_lazy('categories')
+    template_name = "category_confirm_delete.html"
