@@ -30,6 +30,10 @@ urlpatterns = [
     url(r'categories/new/$', views.NewCategory.as_view(), name='new_category'),
     url(r'categories/(?P<pk>\d+)/$', views.CategoryDetailView.as_view(),
         name='category_detail'),
-     url(r'categories/(?P<pk>\d+)/delete/$', views.CategoryDeleteView.as_view(),
+    url(r'categories/(?P<pk>\d+)/delete/$', views.CategoryDeleteView.as_view(),
         name='category_delete'),
+    url(r'receipts/$', views.ReceiptsListView.as_view(), name='receipts'),
+    url(r'receipts/new/$', views.NewReceiptView.as_view(), name='new_receipt'),
+
+
 ]

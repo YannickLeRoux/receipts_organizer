@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}New Receipt{% endblock title %}
+{% block content %}
+<div id="free-promo" style="text-align: center;
+    margin-top: 60px;">
+	<div class='container'>
+		<div class="row">
+			  <div class="section-subcontent">
+           {% include "includes/receipt_scan_form.html" %} 
+
+
+		    </div>
+		</div>
+	</div>
+</div>
+{% endblock content %}

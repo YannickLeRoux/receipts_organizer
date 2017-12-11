@@ -10,8 +10,6 @@
         aA New Categories</h1>
 			  <div class="section-subcontent">
 
-		      <a href="{% url 'new_category' %}" class="btn btn-primary"> Create New Category</a>
-
           <form method="post" class="mb-4" novalidate>
             {% csrf_token %}
             {% include 'includes/form.html' %}

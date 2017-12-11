@@ -118,7 +118,7 @@ button:hover {
 }
 .btn-common {
   color: #FFF;
-  background: #b0387a !important;
+  background: #b0387a;
   position: relative;
   border: transparent;
   z-index: 1;
