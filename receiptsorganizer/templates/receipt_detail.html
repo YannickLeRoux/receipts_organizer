@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{{ receipt.name }}{% endblock title %}
+{% block content %}
+<div id="free-promo" style="text-align: center;">
+	<div class='container'>
+		<div class="row">
+		  <h1 class="section-title wow fadeIn animated"
+        data-wow-delay=".2s">{{ receipt.name }}</h1>
+			  <div class="section-subcontent">
+
+					<a href="{% url 'category_delete' pk=category.pk %}" class="btn
+            btn-danger">Delete This Receipt</a>
+
+          <p><strong>Description:</strong> {{category.description }} </p>		      
+		    </div>
+		</div>
+	</div>
+</div>
+{% endblock content %}
+

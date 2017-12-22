@@ -10,10 +10,10 @@ class CategoryForm(forms.ModelForm):
         model = Category
 
 
-class NewReceiptForm(forms.Form):
+class NewReceiptForm(forms.ModelForm):
     
     scan = forms.ImageField(label='Upload a Receipt Scan')
 
     class Meta():
-        model= Receipt
+        model = Receipt
         fields = ('category','name','amount','scan')

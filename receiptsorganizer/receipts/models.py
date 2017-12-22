@@ -1,6 +1,7 @@
 import string
 import random
 
+from django.utils import timezone
 from django.db.utils import IntegrityError
 from django.db import models, transaction
 from django.contrib.auth.models import User
@@ -151,8 +152,8 @@ class RandomPrimaryIdModel(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=140,blank=True,null=True)
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_updated = models.DateTimeField(auto_now=True)
+    date_created = models.DateField(default=timezone.now)
+    date_updated = models.DateField(auto_now=True)
     created_by = models.ForeignKey(User, related_name="categories")
 
     def __str__(self):
@@ -164,9 +165,12 @@ class Receipt(RandomPrimaryIdModel):
     scan = models.ImageField(upload_to='receipts/%Y/%m/%d',blank=True, null=True)
     name = models.CharField(max_length=50)
     amount = models.FloatField()
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_updated = models.DateTimeField(auto_now=True)
+    date_created = models.DateField(default=timezone.now)
+    date_updated = models.DateField(auto_now=True)
     recorded_by = models.ForeignKey(User, related_name="documents")
+
+    def __str__(self):
+        return self.name
 
     # def save(self, *args, **kwargs):
     #     self.id_code = self.category.name[:3] + "1234567"

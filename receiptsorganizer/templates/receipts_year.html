@@ -1,23 +1,23 @@
 {% extends "base.html" %}
 
-{% block title %}Receipts Archive{% endblock title %}
+{% block title %}Receipts{% endblock title %}
 {% block content %}
 <div id="free-promo">
 	<div class='container'>
 		<div class="row">
 		  <h1 class="section-title wow fadeIn animated"
-        data-wow-delay=".2s">Receipts</h1>
+        data-wow-delay=".2s">Receipts by Year</h1>
 			  <div class="section-subcontent">
 
 		      <a href="{% url 'new_receipt' %}" class="btn btn-common mb-10">Add a New
             Receipts</a>
-          <h1>Pick up a Year:</h1>
+          <h1>Pick up a Month:</h1>
           <ul>
-            {% for y in years_available %}
-						<li><a href="{% url 'receipt_year_archive' %}">{{y|date:"Y"}}</a></li>
+            {% for month in date_list %}
+            <li><a href="#">{{ month|date:"F Y" }}</a></li>
 						{% empty %}
-						  <p>No Receipt Yet</p>
-						{% endfor %}
+						<p>No Receipt Yet</p>
+            {% endfor %}
           </ul>
 					
 		      		    </div>

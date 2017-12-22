@@ -1,5 +1,5 @@
 from django.views.generic import (TemplateView, ListView, CreateView,
-                                    DetailView, DeleteView)
+                                    DetailView, DeleteView, YearArchiveView)
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
@@ -46,14 +46,26 @@ class CategoryDeleteView(LoginRequiredMixin, DeleteView):
     template_name = "category_confirm_delete.html"
 
 
-class ReceiptsListView(LoginRequiredMixin, ListView):
+class ReceiptListView(LoginRequiredMixin, ListView):
     model = Receipt
-    context_object_name = 'receipts'
     template_name = 'receipts.html'
 
     def get_queryset(self):
-        queryset = Receipt.objects.filter(recorded_by=self.request.user)
+        queryset = Receipt.objects.dates('date_created','year',order="DESC")
         return queryset
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(ReceiptListView, self).get_context_data(**kwargs)
+        context['years_available'] = Receipt.objects.dates('date_created',
+                'year', order="DESC")
+        return context
+
+class ReceiptYearArchiveView(LoginRequiredMixin, YearArchiveView):
+    queryset = Receipt.objects.all()
+    date_field = "created_at"
+    make_object_list = True
+
+
 
 
 class NewReceiptView(LoginRequiredMixin, CreateView):
@@ -64,7 +76,11 @@ class NewReceiptView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
-        self.object.created_by = self.request.user
+        self.object.recorded_by = self.request.user
         self.object.save()
         return super().form_valid(form)
 
+
+class ReceiptDetailView(LoginRequiredMixin, DetailView):
+    model = Receipt
+    template_name = 'receipt_detail.html'
