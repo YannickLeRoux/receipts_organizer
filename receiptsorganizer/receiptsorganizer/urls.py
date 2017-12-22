@@ -36,8 +36,10 @@ urlpatterns = [
     url(r'receipts/new/$', views.NewReceiptView.as_view(), name='new_receipt'),
     url(r'receipts/(?P<id>REC[zA-Z0-9_]+)/$', views.ReceiptDetailView.as_view(),
         name='receipt_detail'),
-    url(r'receipts/(?P<year>[0-9]{4}/$)',views.ReceiptYearArchiveView.as_view(),
+    url(r'receipts/(?P<year>[0-9]{4})/$',views.ReceiptYearArchiveView.as_view(),
     name='receipt_year_archive'),
+     url(r'receipts/(?P<year>[0-9]{4})/(?P<month>[-\w]+)/$',views.ReceiptMonthArchiveView.as_view(),
+    name='receipt_month_archive'),
 
 
 ]

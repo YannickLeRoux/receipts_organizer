@@ -62,8 +62,14 @@ class ReceiptListView(LoginRequiredMixin, ListView):
 
 class ReceiptYearArchiveView(LoginRequiredMixin, YearArchiveView):
     queryset = Receipt.objects.all()
-    date_field = "created_at"
+    date_field = "date_created"
     make_object_list = True
+    template_name ='receipts_year.html'
+
+class ReceiptMonthArchiveView(LoginRequiredMixin, ListView):
+    model = Receipt
+    template_name ='receipts_month.html'
+
 
 
 
