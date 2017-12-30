@@ -6,13 +6,28 @@
 	<div class='container'>
 		<div class="row">
 		  <h1 class="section-title wow fadeIn animated"
-        data-wow-delay=".2s">Receipts by Month</h1>
+        data-wow-delay=".2s">Receipts of {{ month|date:"F Y" }}</h1>
 			  <div class="section-subcontent">
 
 		      <a href="{% url 'new_receipt' %}" class="btn btn-common mb-10">Add a New
             Receipts</a>
-          <h1>Pick up a Month:</h1>
           <h1>list des receitps </h1>
+          <table>
+            <thead class="table">
+              <th>ID</th>
+              <th>Name</th>
+              <th>Amount</th>
+              <th>Date created</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
           
 					
 		      		    </div>

@@ -170,7 +170,7 @@ class Receipt(RandomPrimaryIdModel):
     recorded_by = models.ForeignKey(User, related_name="documents")
 
     def __str__(self):
-        return self.name
+        return self.id + self.name
 
     # def save(self, *args, **kwargs):
     #     self.id_code = self.category.name[:3] + "1234567"

@@ -48,7 +48,13 @@ class CategoryDeleteView(LoginRequiredMixin, DeleteView):
 
 class ReceiptListView(LoginRequiredMixin, ListView):
     model = Receipt
+    context_object_name = "receipts"
     template_name = 'receipts.html'
+
+    def get_queryset(self):
+        queryset = Receipt.objects.filter(created_by=self.request.user)
+        return queryset
+
 
     def get_queryset(self):
         queryset = Receipt.objects.dates('date_created','year',order="DESC")

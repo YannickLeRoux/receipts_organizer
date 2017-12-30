@@ -38,7 +38,7 @@ urlpatterns = [
         name='receipt_detail'),
     url(r'receipts/(?P<year>[0-9]{4})/$',views.ReceiptYearArchiveView.as_view(),
     name='receipt_year_archive'),
-     url(r'receipts/(?P<year>[0-9]{4})/(?P<month>[-\w]+)/$',views.ReceiptMonthArchiveView.as_view(),
+     url(r'receipts/(?P<year>[0-9]{4})/(?P<month>\d{2})/$',views.ReceiptMonthArchiveView.as_view(),
     name='receipt_month_archive'),
 
 
