@@ -45,11 +45,10 @@ class CategoryDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('categories')
     template_name = "category_confirm_delete.html"
 
-
-class ReceiptListView(LoginRequiredMixin, ListView):
+class ReceiptsYearsView(LoginRequiredMixin, ListView):
     model = Receipt
     context_object_name = "receipts"
-    template_name = 'receipts.html'
+    template_name = 'receipts_years.html'
 
     def get_queryset(self):
         queryset = Receipt.objects.filter(created_by=self.request.user)
@@ -61,23 +60,26 @@ class ReceiptListView(LoginRequiredMixin, ListView):
         return queryset
 
     def get_context_data(self, *args, **kwargs):
-        context = super(ReceiptListView, self).get_context_data(**kwargs)
+        context = super(ReceiptsYearsView, self).get_context_data(**kwargs)
         context['years_available'] = Receipt.objects.dates('date_created',
                 'year', order="DESC")
         return context
 
-class ReceiptYearArchiveView(LoginRequiredMixin, YearArchiveView):
+class ReceiptsMonthsView(LoginRequiredMixin, YearArchiveView):
     queryset = Receipt.objects.all()
     date_field = "date_created"
     make_object_list = True
-    template_name ='receipts_year.html'
+    template_name ='receipts_months.html'
 
-class ReceiptMonthArchiveView(LoginRequiredMixin, ListView):
+
+class ReceiptsOfOneMonthView(LoginRequiredMixin, ListView):
     model = Receipt
-    template_name ='receipts_month.html'
+    context_object_name = "receipts"
+    template_name = 'receipts.html'
 
-
-
+    def get_queryset(self):
+        queryset = Receipt.objects.all()
+        return queryset
 
 
 class NewReceiptView(LoginRequiredMixin, CreateView):

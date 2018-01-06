@@ -32,14 +32,14 @@ urlpatterns = [
         name='category_detail'),
     url(r'categories/(?P<pk>\d+)/delete/$', views.CategoryDeleteView.as_view(),
         name='category_delete'),
-    url(r'receipts/$', views.ReceiptListView.as_view(), name='receipts'),
+    url(r'receipts/$', views.ReceiptsYearsView.as_view(), name='receipts_years'),
     url(r'receipts/new/$', views.NewReceiptView.as_view(), name='new_receipt'),
     url(r'receipts/(?P<id>REC[zA-Z0-9_]+)/$', views.ReceiptDetailView.as_view(),
         name='receipt_detail'),
-    url(r'receipts/(?P<year>[0-9]{4})/$',views.ReceiptYearArchiveView.as_view(),
-    name='receipt_year_archive'),
-     url(r'receipts/(?P<year>[0-9]{4})/(?P<month>\d{2})/$',views.ReceiptMonthArchiveView.as_view(),
-    name='receipt_month_archive'),
+    url(r'receipts/(?P<year>[0-9]{4})/$',views.ReceiptsMonthsView.as_view(),
+    name='receipts_months'),
+     url(r'receipts/(?P<year>[0-9]{4})/(?P<month>\d{2})/$',views.ReceiptsOfOneMonthView.as_view(),
+    name='receipts_one_month'),
 
 
 ]
