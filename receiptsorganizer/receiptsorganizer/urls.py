@@ -34,7 +34,7 @@ urlpatterns = [
         name='category_delete'),
     url(r'receipts/$', views.ReceiptsYearsView.as_view(), name='receipts_years'),
     url(r'receipts/new/$', views.NewReceiptView.as_view(), name='new_receipt'),
-    url(r'receipts/(?P<id>REC[zA-Z0-9_]+)/$', views.ReceiptDetailView.as_view(),
+    url(r'receipts/(?P<pk>REC[a-zA-Z0-9_]+)/$', views.ReceiptDetailView.as_view(),
         name='receipt_detail'),
     url(r'receipts/(?P<year>[0-9]{4})/$',views.ReceiptsMonthsView.as_view(),
     name='receipts_months'),

@@ -12,6 +12,27 @@
 					<a href="{% url 'category_delete' pk=category.pk %}" class="btn btn-danger">Delete This Category</a>
 
           <p><strong>Description:</strong> {{category.description }} </p>		      
+           <table>
+            <thead class="table">
+              <th>ID</th>
+              <th>Name</th>
+              <th>Amount</th>
+              <th>Date created</th>
+            </thead>
+            <tbody>
+              <tr>
+                {% for receipt in receipts %}
+                <td> {{ receipt.id }}</td>
+                <td> {{ receipt.name }}</td>
+                <td>{{ receipt.amount }}</td>
+                <td>{{ receipt.date_created }}</td>
+								{% empty %}
+								<p> Nothing to Show</p>
+                {% endfor %}
+              </tr>
+            </tbody>
+          </table>
+
 		    </div>
 		</div>
 	</div>

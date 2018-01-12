@@ -2,6 +2,7 @@ from django.views.generic import (TemplateView, ListView, CreateView,
                                     DetailView, DeleteView, YearArchiveView)
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404
 
 from .models import Category, Receipt
 
@@ -36,9 +37,20 @@ class NewCategory(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class CategoryDetailView(LoginRequiredMixin, DetailView):
-    model = Category
+class CategoryDetailView(LoginRequiredMixin, ListView):
+    model = Receipt
+    context_object_name = "receipts"
     template_name = 'category_detail.html'
+
+    def get_context_data(self, **kwargs):
+        kwargs['category'] = self.category
+        return super().get_context_data(**kwargs)
+
+    def get_queryset(self):
+        self.category = get_object_or_404(Category, pk=self.kwargs.get('pk'))
+        queryset = self.category.receipts.all()
+        return queryset
+
 
 class CategoryDeleteView(LoginRequiredMixin, DeleteView):
     model = Category
@@ -50,9 +62,9 @@ class ReceiptsYearsView(LoginRequiredMixin, ListView):
     context_object_name = "receipts"
     template_name = 'receipts_years.html'
 
-    def get_queryset(self):
-        queryset = Receipt.objects.filter(created_by=self.request.user)
-        return queryset
+    # def get_queryset(self):
+    #     queryset = Receipt.objects.filter(created_by=self.request.user)
+    #     return queryset
 
 
     def get_queryset(self):
@@ -98,3 +110,8 @@ class NewReceiptView(LoginRequiredMixin, CreateView):
 class ReceiptDetailView(LoginRequiredMixin, DetailView):
     model = Receipt
     template_name = 'receipt_detail.html'
+
+    def get_context_data(self, **kwargs):
+        kwargs['pk'] = self.pk
+        return super().get_context_data(**kwargs)
+

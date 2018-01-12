@@ -9,10 +9,11 @@
         data-wow-delay=".2s">{{ receipt.name }}</h1>
 			  <div class="section-subcontent">
 
-					<a href="{% url 'category_delete' pk=category.pk %}" class="btn
-            btn-danger">Delete This Receipt</a>
+					<a href="#" class="btn btn-danger">Delete This Receipt</a>
 
           <p><strong>Description:</strong> {{category.description }} </p>		      
+          <p><strong>Amount:</strong> {{category.amount }} </p>	
+          <img src="" alt="Receipt Scan">
 		    </div>
 		</div>
 	</div>
