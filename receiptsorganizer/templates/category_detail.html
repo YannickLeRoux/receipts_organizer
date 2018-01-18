@@ -20,16 +20,19 @@
               <th>Date created</th>
             </thead>
             <tbody>
-              <tr>
+              
                 {% for receipt in receipts %}
-                <td> {{ receipt.id }}</td>
+              <tr>
+
+                <td><a href={% url 'receipt_detail' pk=receipt.id %}> {{ receipt.id }}</a></td>
                 <td> {{ receipt.name }}</td>
                 <td>{{ receipt.amount }}</td>
                 <td>{{ receipt.date_created }}</td>
 								{% empty %}
 								<p> Nothing to Show</p>
+                </tr>
+
                 {% endfor %}
-              </tr>
             </tbody>
           </table>
 

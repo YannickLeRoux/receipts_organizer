@@ -9,8 +9,6 @@
         data-wow-delay=".2s">Receipts recorded in {{ year|date:"Y" }}</h1>
 			  <div class="section-subcontent">
 
-		      <a href="{% url 'new_receipt' %}" class="btn btn-common mb-10">Add a New
-            Receipts</a>
           <h1>Pick up a Month:</h1>
           <ul>
             {% for month in date_list %}

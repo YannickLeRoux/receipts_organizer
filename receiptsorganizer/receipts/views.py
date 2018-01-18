@@ -19,7 +19,7 @@ class CategoriesView(LoginRequiredMixin, ListView):
     template_name = 'categories.html'
 
     def get_queryset(self):
-        queryset = Category.objects.filter(created_by=self.request.user)
+        queryset = Category.objects.filter(created_by=self.request.user).order_by('-date_created')
         return queryset
 
 
@@ -97,7 +97,7 @@ class ReceiptsOfOneMonthView(LoginRequiredMixin, ListView):
 class NewReceiptView(LoginRequiredMixin, CreateView):
     model = Receipt
     form_class = NewReceiptForm
-    success_url = reverse_lazy('receipts')
+    success_url = reverse_lazy('receipts_years')
     template_name = 'new_receipt.html'
 
     def form_valid(self, form):
