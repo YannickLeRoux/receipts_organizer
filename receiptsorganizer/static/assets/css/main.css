@@ -3461,7 +3461,7 @@ ul.contact-info2 i.fa {
   }
 }
 
-th, tr, td {
-  text-align:center;
+th {
+  text-align:center !important;
 }
 
