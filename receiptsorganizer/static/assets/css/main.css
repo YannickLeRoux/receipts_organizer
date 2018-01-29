@@ -3460,3 +3460,8 @@ ul.contact-info2 i.fa {
     line-height: 23px;
   }
 }
+
+th, tr, td {
+  text-align:center;
+}
+

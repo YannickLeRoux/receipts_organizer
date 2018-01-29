@@ -111,7 +111,3 @@ class ReceiptDetailView(LoginRequiredMixin, DetailView):
     model = Receipt
     template_name = 'receipt_detail.html'
 
-    def get_context_data(self, **kwargs):
-        kwargs['pk'] = self.pk
-        return super().get_context_data(**kwargs)
-

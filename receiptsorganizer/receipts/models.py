@@ -6,6 +6,8 @@ from django.db.utils import IntegrityError
 from django.db import models, transaction
 from django.contrib.auth.models import User
 
+from django_resized import ResizedImageField
+
 class RandomPrimaryIdModel(models.Model):
     """
     An abstract base class, which provides a random looking primary key for Django models.
@@ -162,7 +164,7 @@ class Category(models.Model):
 
 class Receipt(RandomPrimaryIdModel):
     category = models.ForeignKey(Category, related_name="receipts")
-    scan = models.ImageField(upload_to='receipts/%Y/%m/%d',blank=True, null=True)
+    scan = ResizedImageField(upload_to='receipts/%Y/%m/%d',blank=True, null=True)
     name = models.CharField(max_length=50)
     amount = models.FloatField()
     date_created = models.DateField(default=timezone.now)
@@ -171,10 +173,3 @@ class Receipt(RandomPrimaryIdModel):
 
     def __str__(self):
         return self.id + self.name
-
-    # def save(self, *args, **kwargs):
-    #     self.id_code = self.category.name[:3] + "1234567"
-    #     # creer le id_code ( #category[0:2] + 7 chiffres ): primary key
-    #     # self.id_code = <google comment generer un code unique> 
-    #     super().save(*args, **kwargs)
-

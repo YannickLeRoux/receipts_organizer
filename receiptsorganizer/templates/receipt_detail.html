@@ -11,9 +11,10 @@
 
 					<a href="#" class="btn btn-danger">Delete This Receipt</a>
 
-          <p><strong>Description:</strong> {{category.description }} </p>		      
-          <p><strong>Amount:</strong> {{category.amount }} </p>	
-          <img src="" alt="Receipt Scan">
+          <p><strong>Description:</strong> {{receipt.description }} </p>		      
+          <p><strong>Amount:</strong> {{receipt.amount }} </p>	
+          <img src="{{ receipt.scan.url }}" alt="Receipt Scan"
+          class="img-responsive">
 		    </div>
 		</div>
 	</div>

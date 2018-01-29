@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Receipts{% endblock title %}
+{% block title %}RECEIPTS ARCHIVE{% endblock title %}
 {% block content %}
 <div id="free-promo">	
   <div class='container'>
@@ -10,8 +10,8 @@
 			  <div class="section-subcontent">
 
           <h1>list of receipts </h1>
-          <table>
-            <thead class="table">
+          <table class="row table mt-20">
+            <thead>
               <th>ID</th>
               <th>Name</th>
               <th>Amount</th>
@@ -20,7 +20,7 @@
             <tbody>
               {% for receipt in receipts %}
               <tr>
-                <td><a href={% url 'receipt_detail' pk=receipt.pk %}> {{ receipt.id }}</a></td>
+                <td><a href={% url 'receipt_detail' receipt.id %}> {{ receipt.id }}</a></td>
                 <td> {{ receipt.name }}</td>
                 <td>{{ receipt.amount }}</td>
                 <td>{{ receipt.date_created }}</td>
