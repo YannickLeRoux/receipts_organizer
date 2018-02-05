@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.conf import settings
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
@@ -42,6 +42,7 @@ urlpatterns = [
     name='receipts_months'),
      url(r'receipts/(?P<year>[0-9]{4})/(?P<month>\d{2})/$',views.ReceiptsOfOneMonthView.as_view(),
     name='receipts_one_month'),
+     url(r'^api-auth/', include('rest_framework.urls')),
 
 
 ]
