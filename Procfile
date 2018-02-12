@@ -1,1 +1,1 @@
-web: gunicorn receipts-organizer.wsgi --log-file -
+web: gunicorn receiptsorganizer.wsgi --log-file -
