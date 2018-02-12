@@ -115,3 +115,4 @@ secret.sh
 
 geckodriver.log
 notes.txt
+.env
