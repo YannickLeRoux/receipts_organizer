@@ -81,6 +81,13 @@ WSGI_APPLICATION = 'receiptsorganizer.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# DATABASES = {
+#     'default': config(
+#         'DATABASE_URL',
+#          default='postgres:///receiptsdb',
+#         cast=db_url
+#     )
+# }
 
 DATABASES = {
     'default': {
