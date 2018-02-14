@@ -165,7 +165,4 @@ REST_FRAMEWORK = {
 
 ADMINS = (('Yannick Le Roux', 'rasyann@hotmail.com'),)
 
-# EMAIL CONFIGURATION
-# ------------------------------------------------------------------------------
-EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
 
