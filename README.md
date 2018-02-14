@@ -10,5 +10,7 @@ date...)
 
 4. Browse your receipts via category, year or month.
 
+_Warning: this is not a stable version
+
 TODO: Build REST Api and create a phone app to upload the receipt photo via the
-phone
+phone_
