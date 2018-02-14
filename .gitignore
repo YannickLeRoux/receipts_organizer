@@ -108,7 +108,7 @@ ENV/
 notes.txt
 
 # Django Migrations
-migrations/
+# migrations/
 
 # Files that contains sensitive data
 secret.sh
